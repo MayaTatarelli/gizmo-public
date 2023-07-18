@@ -29,6 +29,9 @@ void GravAccel_RDITestProblem(void);
 void GravAccel_SpecialCustomNuclearZoomBoundaryConditions(void);
 void GravAccel_GMCTurbInit(void);
 void GravAccel_FilamentTurbInit(void);
+//Adding test case for my keplerian disk test problem -- MayaT
+void GravAccel_KeplerianTestProblem_maya(void);
+
 
 /* parent routine which decides which (if any) analytic gravitational forces are applied */
 void add_analytic_gravitational_forces()
@@ -42,7 +45,8 @@ void add_analytic_gravitational_forces()
     //GravAccel_StaticHernquist();        // hernquist-profile sphere
     //GravAccel_StaticIsothermalSphere(); // singular (but finite) isothermal sphere
     //GravAccel_KeplerianOrbit();         // keplerian disk (2D or 3D)
-    GravAccel_KeplerianTestProblem();   // keplerian disk with special boundaries for test problem
+    //GravAccel_KeplerianTestProblem();   // keplerian disk with special boundaries for test problem
+    GravAccel_KeplerianTestProblem_maya();// keplerian disk with special boundaries for Maya's test problem -- MayaT
     //GravAccel_GrowingDiskPotential();   // time-dependent (adiabatically growing) disk
     //GravAccel_StaticNFW();              // NFW profile sphere
     //GravAccel_PaczynskyWiita();         // Paczynsky-Wiita pseudo-Newtonian potential
@@ -377,7 +381,36 @@ void GravAccel_KeplerianTestProblem()
     }
 }
 
-
+//Maya's version of the keplerian test problem -- MayaT
+void GravAccel_KeplerianTestProblem_maya()
+{
+    double x00=2.0, y00=2.0; /* 2D center of orbit: the is hard-coded for the relevant test problem */
+    int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
+    {
+        double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
+        if((r > 0.05)&(r < 2.05))
+        {
+            P[i].GravAccel[0] = -(P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] = -(P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[2] = 0;
+        }
+        if(r <= 0.05)
+        {
+            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*pow(r/0.05,2) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[0] += +(P[i].Pos[0]-x00)*(0.05-r)/0.05 / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*pow(r/0.05,2) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] += +(P[i].Pos[1]-y00)*(0.05-r)/0.05 / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[2] = 0;
+        }
+        if(r >= 2.05)
+        {
+            //double check the division by 0.1 and where this comes from
+            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-2.05)/0.1) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-2.05)/0.1) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[2] = 0;
+        }
+    }
+}
 
 /* static NFW potential (parameters set below) */
 void GravAccel_StaticNFW()

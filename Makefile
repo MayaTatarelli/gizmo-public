@@ -133,7 +133,25 @@ OPT     += -DUSE_MPI_IN_PLACE
 ##
 endif
 
-
+ifeq ($(SYSTYPE),"Graham")
+CC       =  mpicc     # sets the C-compiler
+OPTIMIZE =  -O1 -xHost -funroll-loops -no-prec-div -fast-transcendentals -fp-model fast=2 -ipo  # speed
+#OPTIMIZE += -openmp -parallel -par-num-threads=4  # for openmp mode
+OPTIMIZE += -g -debug parallel -Wall  # warnings
+ifeq (OPENMP,$(findstring OPENMP,$(CONFIGVARS)))
+OPTIMIZE +=-openmp -parallel  # openmp required compiler flags
+endif
+FC       =  $(CC)
+GSL_INCL =
+GSL_LIBS =  #-limf
+FFTW_INCL=
+FFTW_LIBS=
+MPICHLIB =
+HDF5INCL = -DH5_USE_16_API
+HDF5LIB  = -lhdf5 -lz
+MPICHLIB =
+endif
+#----------------------------------------------------------------------
 
 ifeq ($(SYSTYPE),"Stampede2")
 CC       =  mpicc

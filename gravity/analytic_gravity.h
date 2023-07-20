@@ -405,8 +405,8 @@ void GravAccel_KeplerianTestProblem_maya()
         if(r >= 2.05)
         {
             //double check the division by 0.1 and where this comes from
-            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-2.05)/0.1) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-2.05)/0.1) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-2.05)/0.05) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-2.05)/0.05) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
             P[i].GravAccel[2] = 0;
         }
     }

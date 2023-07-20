@@ -386,7 +386,7 @@ void GravAccel_KeplerianTestProblem_maya()
 {
     double x00=2.0, y00=2.0; /* 2D center of orbit: the is hard-coded for the relevant test problem */
     double r_in=0.01, r_out=2.1;
-    printf("\n I GOT UPDATED! \n");
+    printf("\n I GOT UPDATED 1! \n");
     int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
     {
         double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
@@ -396,21 +396,21 @@ void GravAccel_KeplerianTestProblem_maya()
             P[i].GravAccel[1] = -(P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
             P[i].GravAccel[2] = 0;
         }
-        // if(r <= r_in)
-        // {
-        //     P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*pow(r/r_in,2) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-        //     P[i].GravAccel[0] += +(P[i].Pos[0]-x00)*(r_in-r)/r_in / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-        //     P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*pow(r/r_in,2) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-        //     P[i].GravAccel[1] += +(P[i].Pos[1]-y00)*(r_in-r)/r_in / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-        //     P[i].GravAccel[2] = 0;
-        // }
-        // if(r >= r_out)
-        // {
-        //     //double check the division by 0.1 and where this comes from
-        //     P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-        //     P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-        //     P[i].GravAccel[2] = 0;
-        // }
+        if(r <= r_in)
+        {
+            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*pow(r/r_in,2) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[0] += +(P[i].Pos[0]-x00)*(r_in-r)/r_in / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*pow(r/r_in,2) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] += +(P[i].Pos[1]-y00)*(r_in-r)/r_in / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[2] = 0;
+        }
+        if(r >= r_out)
+        {
+            //double check the division by 0.1 and where this comes from
+            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[2] = 0;
+        }
     }
 }
 

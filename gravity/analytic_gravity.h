@@ -45,8 +45,8 @@ void add_analytic_gravitational_forces()
     //GravAccel_StaticHernquist();        // hernquist-profile sphere
     //GravAccel_StaticIsothermalSphere(); // singular (but finite) isothermal sphere
     //GravAccel_KeplerianOrbit();         // keplerian disk (2D or 3D)
-    //GravAccel_KeplerianTestProblem();   // keplerian disk with special boundaries for test problem
-    GravAccel_KeplerianTestProblem_maya();// keplerian disk with special boundaries for Maya's test problem -- MayaT
+    GravAccel_KeplerianTestProblem();   // keplerian disk with special boundaries for test problem
+    //GravAccel_KeplerianTestProblem_maya();// keplerian disk with special boundaries for Maya's test problem -- MayaT
     //GravAccel_GrowingDiskPotential();   // time-dependent (adiabatically growing) disk
     //GravAccel_StaticNFW();              // NFW profile sphere
     //GravAccel_PaczynskyWiita();         // Paczynsky-Wiita pseudo-Newtonian potential

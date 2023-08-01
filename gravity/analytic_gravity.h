@@ -45,8 +45,8 @@ void add_analytic_gravitational_forces()
     //GravAccel_StaticHernquist();        // hernquist-profile sphere
     //GravAccel_StaticIsothermalSphere(); // singular (but finite) isothermal sphere
     //GravAccel_KeplerianOrbit();         // keplerian disk (2D or 3D)
-    GravAccel_KeplerianTestProblem();   // keplerian disk with special boundaries for test problem
-    //GravAccel_KeplerianTestProblem_maya();// keplerian disk with special boundaries for Maya's test problem -- MayaT
+    //GravAccel_KeplerianTestProblem();   // keplerian disk with special boundaries for test problem
+    GravAccel_KeplerianTestProblem_maya();// keplerian disk with special boundaries for Maya's test problem -- MayaT
     //GravAccel_GrowingDiskPotential();   // time-dependent (adiabatically growing) disk
     //GravAccel_StaticNFW();              // NFW profile sphere
     //GravAccel_PaczynskyWiita();         // Paczynsky-Wiita pseudo-Newtonian potential
@@ -385,7 +385,7 @@ void GravAccel_KeplerianTestProblem()
 void GravAccel_KeplerianTestProblem_maya()
 {
     double x00=2.0, y00=2.0; /* 2D center of orbit: the is hard-coded for the relevant test problem */
-    double r_in=0.01, r_out=2.1;
+    double r_in=0.05, r_out=2.1;
     printf("\n I GOT UPDATED 1! \n");
     int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
     {

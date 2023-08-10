@@ -240,6 +240,16 @@ void drift_particle(int i, integertime time1)
     /* check for reflecting or outflow or otherwise special boundaries: if so, do the reflection/boundary! */
     apply_special_boundary_conditions(i,P[i].Mass,0);
 
+    /*Adding a boundary condition (wall) for keplerian test case at inner and outer radii*/
+    double x00=2.0, y00=2.0; /* 2D center of orbit: the is hard-coded for the relevant test problem */
+    double r_in=0.2, r_out=2.0;
+    double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
+    if(r < r_in) //Inner radius boundary
+    {
+        P[i].Pos[0] += (r_in-r) * (P[i].Pos[0]-x00) / r;
+        P[i].Pos[1] += (r_in-r) * (P[i].Pos[1]-y00) / r;
+    }
+
     P[i].Ti_current = time1;
 }
 

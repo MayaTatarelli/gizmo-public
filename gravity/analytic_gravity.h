@@ -400,8 +400,8 @@ void GravAccel_KeplerianTestProblem_maya()
         }
         if((r>(r_in-H)) & (r<(r_in+H)))
         {
-            P[i].GravAccel[0] += (11./4.) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 1./4.)
-            P[i].GravAccel[1] += (11./4.) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 1./4.)
+            P[i].GravAccel[0] += (11./4.) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 1./4.);
+            P[i].GravAccel[1] += (11./4.) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 1./4.);
         }
         if(r <= r_in)
         {

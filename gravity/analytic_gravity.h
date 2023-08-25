@@ -385,12 +385,12 @@ void GravAccel_KeplerianTestProblem()
 void GravAccel_KeplerianTestProblem_maya()
 {
     double x00=2.0, y00=2.0; /* 2D center of orbit: the is hard-coded for the relevant test problem */
-    double r_in=0.18, r_out=2.05;
+    double r_in=0.19, r_out=2.05, r_in_true=0.2;
     printf("\n I GOT UPDATED 1! \n");
     int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
     {
         double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
-        double H = pow(r_in,5./4.);
+        double H = pow(r_in_true,5./4.);
 
         if((r > r_in)&(r < r_out))
         {
@@ -398,10 +398,10 @@ void GravAccel_KeplerianTestProblem_maya()
             P[i].GravAccel[1] = -(P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
             P[i].GravAccel[2] = 0;
         }
-        if((r>(r_in-H)) & (r<(r_in+H)))
+        if((r>(r_in_true-H)) & (r<(r_in_true+H)))
         {
-            P[i].GravAccel[0] += (11./4.) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 1./4.);
-            P[i].GravAccel[1] += (11./4.) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 1./4.);
+            P[i].GravAccel[0] += (11./4.) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
+            P[i].GravAccel[1] += (11./4.) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
         }
         if(r <= r_in)
         {

@@ -390,7 +390,7 @@ void GravAccel_KeplerianTestProblem_maya()
     int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
     {
         double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
-        double H = 0.3*pow(r_in_true,5./4.);
+        double H = 0.05*pow(r_in_true,5./4.);
 
         if((r > r_in)&(r < r_out))
         {
@@ -401,8 +401,8 @@ void GravAccel_KeplerianTestProblem_maya()
         // if((r>(r_in_true-H)) & (r<(r_in_true+H)))
         if(r<(r_in_true+H))
         {
-            P[i].GravAccel[0] += (11./4.) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
-            P[i].GravAccel[1] += (11./4.) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
+            P[i].GravAccel[0] += (11./4.)*(0.05*0.05) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
+            P[i].GravAccel[1] += (11./4.)*(0.05*0.05) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
         }
         // if(r <= r_in)
         // {

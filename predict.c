@@ -219,7 +219,14 @@ void drift_particle(int i, integertime time1)
             if(etmp<0.5*SphP[i].InternalEnergyPred) {SphP[i].InternalEnergyPred *= 0.5;} else {SphP[i].InternalEnergyPred=etmp;}
 #endif
             if(SphP[i].InternalEnergyPred<All.MinEgySpec) SphP[i].InternalEnergyPred=All.MinEgySpec;
-            
+            /*First attempt at fixing temperature profile of gas -- MayaT 01/09/2023*/
+            //Calculate radial location of particle:
+            double x00=2.0, y00=2.0;
+            double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
+            //Calculate internal energy at this radius:
+            double T0 = 0.0025;
+            SphP[i].InternalEnergyPred = T0*pow(r,-0.5) / (GAMMA(i)-1.);
+
 #ifdef HYDRO_PRESSURE_SPH
             SphP[i].EgyWtDensity *= exp(-divv_fac);
 #endif

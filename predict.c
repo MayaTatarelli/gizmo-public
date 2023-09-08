@@ -226,6 +226,7 @@ void drift_particle(int i, integertime time1)
             //Calculate internal energy at this radius:
             double T0 = 0.0025;
             SphP[i].InternalEnergyPred = T0*pow(r,-0.5) / (GAMMA(i)-1.);
+            SphP[i].InternalEnergy = T0*pow(r,-0.5) / (GAMMA(i)-1.);
 
 #ifdef HYDRO_PRESSURE_SPH
             SphP[i].EgyWtDensity *= exp(-divv_fac);

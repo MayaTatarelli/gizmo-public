@@ -390,7 +390,8 @@ void GravAccel_KeplerianTestProblem_maya()
     int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
     {
         double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
-        double H = 0.05*pow(r_in_true,5./4.);
+        double H_factor = 10.0;
+        double H = H_factor*0.05*pow(r_in_true,5./4.);
 
         if((r > r_in)&(r < r_out))
         {

@@ -1,0 +1,1020 @@
+-------------------------------------------------------------------------------------------
+AvailMem:	 Largest =  247714.21 Mb (on task=44), Smallest =  245939.28 Mb (on task=0), Average =  246900.70 Mb
+Total Mem:	 Largest =  257384.93 Mb (on task=0), Smallest =  257384.93 Mb (on task=0), Average =  257384.93 Mb
+Committed_AS:	 Largest =   11445.65 Mb (on task=0), Smallest =    9670.71 Mb (on task=44), Average =   10484.23 Mb
+SwapTotal:	 Largest =       0.00 Mb (on task=0), Smallest =       0.00 Mb (on task=0), Average =       0.00 Mb
+SwapFree:	 Largest =       0.00 Mb (on task=0), Smallest =       0.00 Mb (on task=0), Average =       0.00 Mb
+AllocMem:	 Largest =   11445.65 Mb (on task=0), Smallest =    9670.71 Mb (on task=44), Average =   10484.23 Mb
+-------------------------------------------------------------------------------------------
+
+Task with the maximum commited memory
+System time: Tue Nov 21 19:26:48 2023
+This is GIZMO, version 2022, running on nc30339.narval.calcul.quebec as mtatar.
+Build on narval3.narval.calcul.quebec by mtatar from adding_viscosity:56b7a66 at https://github.com/MayaTatarelli/gizmo-public.git, Nov  8 2023 19:50:41
+
+Code was compiled with settings:
+
+        HYDRO_MESHLESS_FINITE_MASS
+        BOX_SPATIAL_DIMENSION=2
+        SELFGRAVITY_OFF
+        GRAVITY_ANALYTIC
+        EOS_GAMMA=(7.0/5.0)
+        ENERGY_ENTROPY_SWITCH_IS_ACTIVE
+        VISCOSITY
+
+Running on 96 MPI tasks.
+
+Size of particle structure       288  [bytes]
+Size of hydro-cell structure   336  [bytes]
+
+Obtaining parameters from file 'keplerian.params':
+InitCondFile                                      /home/mtatar/projects/def-evelee/mtatar/ICs/keplerian_ic_2d_rho_temp_gradient_mass_0_01_test_1
+OutputDir                                         output
+RestartFile                                       restart
+SnapshotFileBase                                  snapshot
+OutputListFilename                                output_times.txt
+ICFormat                                          3
+SnapFormat                                        3
+TimeLimitCPU                                      9.9991e+09
+CpuTimeBetRestartFile                             3600
+Possible warning to be aware of from file keplerian.params:   Tag 'ResubmitOn' was specified, but it is being ignored -- make sure this is intended!
+Possible warning to be aware of from file keplerian.params:   Tag 'ResubmitCommand' was specified, but it is being ignored -- make sure this is intended!
+MaxMemSize                                        2600
+PartAllocFactor                                   50
+BufferSize                                        100
+TimeBegin                                         0
+TimeMax                                           200
+ComovingIntegrationOn                             0
+Omega0                                            0
+OmegaLambda                                       0
+OmegaBaryon                                       0
+HubbleParam                                       1
+BoxSize                                           8
+OutputListOn                                      0
+TimeBetSnapshot                                   1
+TimeOfFirstSnapshot                               0
+Possible warning to be aware of from file keplerian.params:   Tag 'TimeBetStatistics' was specified, but it is being ignored -- make sure this is intended!
+NumFilesPerSnapshot                               1
+NumFilesWrittenInParallel                         1
+Possible warning to be aware of from file keplerian.params:   Tag 'ErrTolIntAccuracy' was specified, but it is being ignored -- make sure this is intended!
+Possible warning to be aware of from file keplerian.params:   Tag 'CourantFac' was specified, but it is being ignored -- make sure this is intended!
+Possible warning to be aware of from file keplerian.params:   Tag 'MaxRMSDisplacementFac' was specified, but it is being ignored -- make sure this is intended!
+MaxSizeTimestep                                   0.1
+MinSizeTimestep                                   1e-08
+Possible warning to be aware of from file keplerian.params:   Tag 'ErrTolTheta' was specified, but it is being ignored -- make sure this is intended!
+Possible warning to be aware of from file keplerian.params:   Tag 'ErrTolForceAcc' was specified, but it is being ignored -- make sure this is intended!
+TreeDomainUpdateFrequency                         0.005
+DesNumNgb                                         20
+Possible warning to be aware of from file keplerian.params:   Tag 'MaxNumNgbDeviation' was specified, but it is being ignored -- make sure this is intended!
+Possible warning to be aware of from file keplerian.params:   Tag 'ArtBulkViscConst' was specified, but it is being ignored -- make sure this is intended!
+UnitLength_in_cm                                  1
+UnitMass_in_g                                     1
+UnitVelocity_in_cm_per_s                          1
+GravityConstantInternal                           1
+MaxHsml                                           1e+10
+MinGasHsmlFractional                              0
+SofteningGas                                      0.05
+SofteningHalo                                     0.07
+SofteningDisk                                     0.003
+SofteningBulge                                    0.003
+SofteningStars                                    0.003
+SofteningBndry                                    0.003
+SofteningGasMaxPhys                               0.05
+SofteningHaloMaxPhys                              0.07
+SofteningDiskMaxPhys                              0.003
+SofteningBulgeMaxPhys                             0.003
+SofteningStarsMaxPhys                             0.003
+SofteningBndryMaxPhys                             0.003
+InitGasTemp                                       0
+MinGasTemp                                        0
+ShearViscosityCoeff                               3.305e-08
+BulkViscosityCoeff                                1e-16
+
+
+Code units to be used: make sure you check these are correct! 
+  Hubble H0 (internal units) = 3.24078e-18 
+  Gravity G (internal units) = 1 
+  unit Mass in g             = 1 
+  unit Length in cm          = 1 
+  unit Time in s             = 1 
+  unit Velocity in cm/s      = 1 
+  unit Energy in erg         = 1 
+  unit Density in g/cm^3     = 1 
+  unit Pressure in erg/cm^3  = 1 
+  unit Luminosity in erg/s   = 1 
+  unit Flux in erg/s/cm^2    = 1 
+  unit B[internal] in gauss  = 3.54491 
+
+Allocated 10.5637 MByte for particle data storage.
+Allocated 11.792 MByte for storage of hydro data.
+
+Reading file `/home/mtatar/projects/def-evelee/mtatar/ICs/keplerian_ic_2d_rho_temp_gradient_mass_0_01_test_1.hdf5' on task=0 (contains 70694 particles.)
+ ..distributing this file to tasks 0-95
+Type 0 (gas):      70694  (tot=     0000070694) masstab=0
+Type 1 (halo):         0  (tot=     0000000000) masstab=0
+Type 2 (alt):          0  (tot=     0000000000) masstab=0
+Type 3 (pic):          0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (sink):         0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 5 (Masses)...
+reading block 6 (InternalEnergy)...
+Reading done. Total number of particles :  0000070694
+
+Domain decomposition building... LevelToTimeBin[TakeLevel=0]=0  (presently allocated=22.3582 MB)
+ ..allocated 0.0249901 MByte for top-level domain structure
+ ..using 0.592926 MB of temporary storage for domain decomposition... (presently allocated=22.9762 MB)
+
+In 'DOMAIN', domain_Decomposition()/domain.c/208: Largest Allocation = 22.9769 Mbyte (on task=0), Smallest = 22.9769 Mbyte, Average = 22.9769 Mbyte
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0        Exportflag      0.0004       0.0004  allocate_memory()/system/allocate/31
+   0    1 0       Exportindex      0.0004       0.0007  allocate_memory()/system/allocate/32
+   0    2 0   Exportnodecount      0.0004       0.0011  allocate_memory()/system/allocate/33
+   0    3 0        Send_count      0.0004       0.0015  allocate_memory()/system/allocate/35
+   0    4 0       Send_offset      0.0004       0.0018  allocate_memory()/system/allocate/36
+   0    5 0        Recv_count      0.0004       0.0022  allocate_memory()/system/allocate/37
+   0    6 0       Recv_offset      0.0004       0.0026  allocate_memory()/system/allocate/38
+   0    7 0     ProcessedFlag      0.0351       0.0377  allocate_memory()/system/allocate/40
+   0    8 0   NextActiveParti      0.1404       0.1780  allocate_memory()/system/allocate/43
+   0    9 0     NextInTimeBin      0.1404       0.3184  allocate_memory()/system/allocate/46
+   0   10 0     PrevInTimeBin      0.1404       0.4588  allocate_memory()/system/allocate/49
+   0   11 0    ParticleData_P     10.1074      10.5662  allocate_memory()/system/allocate/55
+   0   12 0     GasCellData_P     11.7920      22.3582  allocate_memory()/system/allocate/69
+   0   13 0   DomainStartList      0.0029      22.3611  domain_allocate()/domain.c/296
+   0   14 0     DomainEndList      0.0029      22.3641  domain_allocate()/domain.c/299
+   0   15 0          TopNodes      0.0191      22.3832  domain_allocate()/domain.c/302
+   0   16 0        domain_key      0.5615      22.9447  domain_Decompos()/domain.c/155
+   0   17 0              toGo      0.0004      22.9451  domain_Decompos()/domain.c/158
+   0   18 0           toGoGas      0.0004      22.9455  domain_Decompos()/domain.c/160
+   0   19 0             toGet      0.0004      22.9458  domain_Decompos()/domain.c/162
+   0   20 0          toGetGas      0.0004      22.9462  domain_Decompos()/domain.c/164
+   0   21 0      list_NumPart      0.0004      22.9466  domain_Decompos()/domain.c/166
+   0   22 0        list_N_gas      0.0004      22.9469  domain_Decompos()/domain.c/168
+   0   23 0         list_load      0.0004      22.9473  domain_Decompos()/domain.c/170
+   0   24 0      list_loadgas      0.0004      22.9477  domain_Decompos()/domain.c/172
+   0   25 0         list_work      0.0007      22.9484  domain_Decompos()/domain.c/174
+   0   26 0      list_workgas      0.0007      22.9491  domain_Decompos()/domain.c/176
+   0   27 0        domainWork      0.0011      22.9503  domain_Decompos()/domain.c/178
+   0   28 0     domainWorkGas      0.0011      22.9514  domain_Decompos()/domain.c/180
+   0   29 0       domainCount      0.0011      22.9525  domain_Decompos()/domain.c/182
+   0   30 0    domainCountGas      0.0011      22.9536  domain_Decompos()/domain.c/184
+   0   31 0          topNodes      0.0225      22.9762  domain_Decompos()/domain.c/197
+----------------------------------------------------------------------------------------
+We are out of Topnodes. We'll try to repeat with a higher value than All.TopNodeAllocFactor=0.008
+Increasing TopNodeAllocFactor=0.008  ..new value=0.0104
+ ..allocated 0.0306969 MByte for top-level domain structure
+ ..using 0.600983 MB of temporary storage for domain decomposition... (presently allocated=22.9899 MB)
+We are out of Topnodes. We'll try to repeat with a higher value than All.TopNodeAllocFactor=0.0104
+Increasing TopNodeAllocFactor=0.0104  ..new value=0.01352
+ ..allocated 0.0381546 MByte for top-level domain structure
+ ..using 0.611511 MB of temporary storage for domain decomposition... (presently allocated=23.008 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.01352  ..new value=0.017576
+ ..allocated 0.0478172 MByte for top-level domain structure
+ ..using 0.625153 MB of temporary storage for domain decomposition... (presently allocated=23.0312 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.017576  ..new value=0.0228488
+ ..allocated 0.0603981 MByte for top-level domain structure
+ ..using 0.642914 MB of temporary storage for domain decomposition... (presently allocated=23.0617 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.0228488  ..new value=0.0297034
+ ..allocated 0.0768051 MByte for top-level domain structure
+ ..using 0.666077 MB of temporary storage for domain decomposition... (presently allocated=23.1011 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.0297034  ..new value=0.0386145
+ ..allocated 0.0980759 MByte for top-level domain structure
+ ..using 0.696106 MB of temporary storage for domain decomposition... (presently allocated=23.1524 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.0386145  ..new value=0.0501988
+ ..allocated 0.125702 MByte for top-level domain structure
+ ..using 0.735107 MB of temporary storage for domain decomposition... (presently allocated=23.219 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.0501988  ..new value=0.0652585
+ ..allocated 0.161629 MByte for top-level domain structure
+ ..using 0.785828 MB of temporary storage for domain decomposition... (presently allocated=23.3058 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.0652585  ..new value=0.084836
+ ..allocated 0.208321 MByte for top-level domain structure
+ ..using 0.851746 MB of temporary storage for domain decomposition... (presently allocated=23.4184 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.084836  ..new value=0.110287
+ ..allocated 0.269085 MByte for top-level domain structure
+ ..using 0.937531 MB of temporary storage for domain decomposition... (presently allocated=23.5649 MB)
+ ..NTopNodes before=3593
+Increasing TopNodeAllocFactor=0.110287  ..new value=0.143373
+ ..allocated 0.348072 MByte for top-level domain structure
+ ..using 1.04904 MB of temporary storage for domain decomposition... (presently allocated=23.7554 MB)
+ ..NTopNodes before=3593
+Increasing TopNodeAllocFactor=0.143373  ..new value=0.186385
+ ..allocated 0.450665 MByte for top-level domain structure
+ ..using 1.19388 MB of temporary storage for domain decomposition... (presently allocated=24.0029 MB)
+ ..NTopNodes before=3593
+Increasing TopNodeAllocFactor=0.186385  ..new value=0.2423
+ ..allocated 0.584126 MByte for top-level domain structure
+ ..using 1.38229 MB of temporary storage for domain decomposition... (presently allocated=24.3247 MB)
+ ..NTopNodes before=3593
+Increasing TopNodeAllocFactor=0.2423  ..new value=0.31499
+ ..allocated 0.757599 MByte for top-level domain structure
+ ..using 1.6272 MB of temporary storage for domain decomposition... (presently allocated=24.743 MB)
+ ..NTopNodes before=3593
+Increasing TopNodeAllocFactor=0.31499  ..new value=0.409487
+ ..allocated 0.983147 MByte for top-level domain structure
+ ..using 1.94562 MB of temporary storage for domain decomposition... (presently allocated=25.287 MB)
+
+In 'DOMAIN', domain_Decomposition()/domain.c/208: Largest Allocation = 25.2878 Mbyte (on task=0), Smallest = 25.2878 Mbyte, Average = 25.2878 Mbyte
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0        Exportflag      0.0004       0.0004  allocate_memory()/system/allocate/31
+   0    1 0       Exportindex      0.0004       0.0007  allocate_memory()/system/allocate/32
+   0    2 0   Exportnodecount      0.0004       0.0011  allocate_memory()/system/allocate/33
+   0    3 0        Send_count      0.0004       0.0015  allocate_memory()/system/allocate/35
+   0    4 0       Send_offset      0.0004       0.0018  allocate_memory()/system/allocate/36
+   0    5 0        Recv_count      0.0004       0.0022  allocate_memory()/system/allocate/37
+   0    6 0       Recv_offset      0.0004       0.0026  allocate_memory()/system/allocate/38
+   0    7 0     ProcessedFlag      0.0351       0.0377  allocate_memory()/system/allocate/40
+   0    8 0   NextActiveParti      0.1404       0.1780  allocate_memory()/system/allocate/43
+   0    9 0     NextInTimeBin      0.1404       0.3184  allocate_memory()/system/allocate/46
+   0   10 0     PrevInTimeBin      0.1404       0.4588  allocate_memory()/system/allocate/49
+   0   11 0    ParticleData_P     10.1074      10.5662  allocate_memory()/system/allocate/55
+   0   12 0     GasCellData_P     11.7920      22.3582  allocate_memory()/system/allocate/69
+   0   13 0   DomainStartList      0.0029      22.3611  domain_allocate()/domain.c/296
+   0   14 0     DomainEndList      0.0029      22.3641  domain_allocate()/domain.c/299
+   0   15 0          TopNodes      0.9773      23.3414  domain_allocate()/domain.c/302
+   0   16 0        domain_key      0.5615      23.9029  domain_Decompos()/domain.c/155
+   0   17 0              toGo      0.0004      23.9033  domain_Decompos()/domain.c/158
+   0   18 0           toGoGas      0.0004      23.9036  domain_Decompos()/domain.c/160
+   0   19 0             toGet      0.0004      23.9040  domain_Decompos()/domain.c/162
+   0   20 0          toGetGas      0.0004      23.9044  domain_Decompos()/domain.c/164
+   0   21 0      list_NumPart      0.0004      23.9047  domain_Decompos()/domain.c/166
+   0   22 0        list_N_gas      0.0004      23.9051  domain_Decompos()/domain.c/168
+   0   23 0         list_load      0.0004      23.9055  domain_Decompos()/domain.c/170
+   0   24 0      list_loadgas      0.0004      23.9058  domain_Decompos()/domain.c/172
+   0   25 0         list_work      0.0007      23.9066  domain_Decompos()/domain.c/174
+   0   26 0      list_workgas      0.0007      23.9073  domain_Decompos()/domain.c/176
+   0   27 0        domainWork      0.0575      23.9648  domain_Decompos()/domain.c/178
+   0   28 0     domainWorkGas      0.0575      24.0223  domain_Decompos()/domain.c/180
+   0   29 0       domainCount      0.0575      24.0798  domain_Decompos()/domain.c/182
+   0   30 0    domainCountGas      0.0575      24.1373  domain_Decompos()/domain.c/184
+   0   31 0          topNodes      1.1497      25.2870  domain_Decompos()/domain.c/197
+----------------------------------------------------------------------------------------
+ ..NTopNodes before=3593
+ ..NTopnodes after=13161
+ ..NTopleaves= 11516  NTopnodes=13161 (space for 15070)
+Balance: gravity work-load balance=1.01033   memory-balance=1.01033   hydro work-load balance=1.01033
+ ..iter=0 exchange of 0000069880 particles (ret=0)
+ ..domain decomposition done. (took 0.0809011 sec)
+Begin Peano-Hilbert order...
+ ..Peano-Hilbert done
+ ..freed 0.116516 MByte in top-level domain structure
+Allocated 5.77323 MByte for tree, and 0.0439301 Mbyte for top-leaves.  (presently allocated 29.0348 MB)
+Begin Ngb-tree construction.
+Ngb-Tree contruction finished 
+ngb iteration 11: need to repeat for 0000000008 particles
+ngb iteration 12: need to repeat for 0000000003 particles
+ngb iteration 13: need to repeat for 0000000002 particles
+
+Setting next time for snapshot file to Time_next= 0  (DumpFlag=1)
+
+Sync-Point 0, Time: 0, Systemstep: 0
+Occupied timebins: non-cells     cells       dt                 cumulative A D    avg-time  cpu-frac
+ X  bin= 0               0       70694     0.000000000000            70694 < *        0.00      0.0%
+               ------------------------
+Total active:            0       70694    Sum:      70694
+
+Domain decomposition building... LevelToTimeBin[TakeLevel=0]=0  (presently allocated=22.3582 MB)
+ ..allocated 0.983147 MByte for top-level domain structure
+ ..using 1.94562 MB of temporary storage for domain decomposition... (presently allocated=25.287 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.409487  ..new value=0.532333
+ ..allocated 1.27627 MByte for top-level domain structure
+ ..using 2.35944 MB of temporary storage for domain decomposition... (presently allocated=25.994 MB)
+Can't combine trees due to lack of storage. Will try again.
+Increasing TopNodeAllocFactor=0.532333  ..new value=0.692033
+ ..allocated 1.65739 MByte for top-level domain structure
+ ..using 2.89749 MB of temporary storage for domain decomposition... (presently allocated=26.9132 MB)
+ ..NTopNodes before=16513
+ ..NTopnodes after=17201
+ ..NTopleaves= 15051  NTopnodes=17201 (space for 25467)
+Balance: gravity work-load balance=1.00889   memory-balance=1.00897   hydro work-load balance=1.00897
+ ..iter=0 exchange of 0000069570 particles (ret=0)
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+ ..domain decomposition done. (took 0.0415787 sec)
+Begin Peano-Hilbert order...
+ ..Peano-Hilbert done
+ ..freed 0.504517 MByte in top-level domain structure
+Start gravity force computation...
+Tree construction initiated (presently allocated=30.0655 MB)
+ ..Tree construction done.
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+ ..gravity force computation done
+Start hydrodynamics computation...
+ngb iteration 11: need to repeat for 0000000004 particles
+ngb iteration 12: need to repeat for 0000000002 particles
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+ ..Hmax exchange: 1001 topleaves out of 15051
+ ..density & tree-update computation done...
+ ..gradient computation done.
+WARNING issued on task=5, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=5, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=2299  dt_desired=-nan dt_Courant=0.00544345 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=15.0169 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(2|2.25805|0) Vel_xyz=(-1.9651|6.01639e-16|0)
+ Hsml=0.00441761 Density=0.0461173 InternalEnergy=0.0123034 dtInternalEnergy=-nan divV=1.26064e-13 Pressure=0.00022696 Cs_Eff=0.0830054 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.128688 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=1 Nngb=4.47104
+ NVT=0/0/0 0/0/0 0/0/0
+
+WARNING issued on task=5, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=5, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=2278  dt_desired=-nan dt_Courant=0.005423 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=15.124 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(2|2.25714|0) Vel_xyz=(-1.9686|6.02711e-16|0)
+ Hsml=0.00442985 Density=0.0459237 InternalEnergy=0.0123253 dtInternalEnergy=-nan divV=1.30927e-13 Pressure=0.000226409 Cs_Eff=0.0830792 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.129445 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=1 Nngb=4.47401
+ NVT=0/0/0 0/0/0 0/0/0
+
+WARNING issued on task=14, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=14, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=2269  dt_desired=-nan dt_Courant=0.00581081 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=15.124 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(2.25714|2|0) Vel_xyz=(4.82169e-16|1.9686|0)
+ Hsml=0.00442515 Density=0.0459824 InternalEnergy=0.0123253 dtInternalEnergy=-nan divV=-1.87558e-15 Pressure=0.000226698 Cs_Eff=0.0830792 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.120729 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=1 Nngb=4.47211
+ NVT=0/0/0 0/0/0 0/0/0
+
+WARNING issued on task=14, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=14, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=2290  dt_desired=-nan dt_Courant=0.00577592 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=15.0169 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(2.25805|2|0) Vel_xyz=(4.81311e-16|1.9651|0)
+ Hsml=0.00443131 Density=0.0458358 InternalEnergy=0.0123034 dtInternalEnergy=-nan divV=-1.8713e-15 Pressure=0.000225575 Cs_Eff=0.0830054 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.121653 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=1 Nngb=4.4712
+ NVT=0/0/0 0/0/0 0/0/0
+
+ ..hydro force computation done.
+Predicting next timestep: 5.82077e-09
+
+writing snapshot file #0... 
+WARNING issued on task=66, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=66, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=2308  dt_desired=-nan dt_Courant=0.00523238 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=15.0169 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(1.74195|2|0) Vel_xyz=(-7.21967e-16|-1.9651|0)
+ Hsml=0.00443264 Density=0.04582 InternalEnergy=0.0123034 dtInternalEnergy=-nan divV=1.99828e-13 Pressure=0.000225497 Cs_Eff=0.0830054 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.134313 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=1 Nngb=4.47177
+ NVT=0/0/0 0/0/0 0/0/0
+
+WARNING issued on task=66, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=66, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=2251  dt_desired=-nan dt_Courant=0.0058077 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=15.124 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(1.74286|2|0) Vel_xyz=(-2.41084e-16|-1.9686|0)
+ Hsml=0.00442123 Density=0.0460317 InternalEnergy=0.0123253 dtInternalEnergy=-nan divV=2.78754e-13 Pressure=0.000226942 Cs_Eff=0.0830792 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.120729 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=1 Nngb=4.47055
+ NVT=0/0/0 0/0/0 0/0/0
+
+WARNING issued on task=66, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=66, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=1174  dt_desired=-nan dt_Courant=0.0132407 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=18.925 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(1.77013|2|0) Vel_xyz=(-2.55008e-16|-2.08229|0)
+ Hsml=0.0114804 Density=0.00683334 InternalEnergy=0.0130358 dtInternalEnergy=-nan divV=-1.2431e-13 Pressure=3.56313e-05 Cs_Eff=0.0854405 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.137441 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=1 Nngb=4.47263
+ NVT=0/0/0 0/0/0 0/0/0
+
+WARNING issued on task=66, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=66, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=884  dt_desired=-nan dt_Courant=0.00814124 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=20.2072 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(1.7779|2|0) Vel_xyz=(-2.59439e-16|-2.11848|0)
+ Hsml=0.00637078 Density=0.0221961 InternalEnergy=0.013262 dtInternalEnergy=-nan divV=0.583937 Pressure=0.000117746 Cs_Eff=0.0861784 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.124027 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=50.1539 Nngb=4.47322
+ NVT=2.6192747010367339/2.5242976742859011/0 2.5242976742859011/260.20170063017804/0 0/0/0
+
+WARNING issued on task=75, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=75, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=7330  dt_desired=-nan dt_Courant=0.0173262 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=6.69804 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(2|1.61361|0) Vel_xyz=(1.6053|-2.94889e-16|0)
+ Hsml=0.0107098 Density=0.00784494 InternalEnergy=0.0100547 dtInternalEnergy=-nan divV=-7.66159e-16 Pressure=3.15512e-05 Cs_Eff=0.0750374 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.0980274 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=1 Nngb=4.47059
+ NVT=0/0/0 0/0/0 0/0/0
+
+WARNING issued on task=75, function get_timestep(), file timestep.c, line 995: Timestep wants to be below the limit `MinSizeTimestep'
+WARNING issued on task=75, function get_timestep(), file timestep.c, line 1015: 
+ Cell-ID=7260  dt_desired=-nan dt_Courant=0.0203611 dt_Accel=-nan
+ accel_tot=-nan accel_gravTree=6.7509 accel_gravPM=0 accel_hydro=-nan accel_rad=0 accel_turb=0 Pos_xyz=(2|1.61513|0) Vel_xyz=(1.60847|-2.95471e-16|0)
+ Hsml=0.0128909 Density=0.00540757 InternalEnergy=0.0100744 dtInternalEnergy=-nan divV=-7.69704e-16 Pressure=2.17913e-05 Cs_Eff=0.0751111 vAlfven=0 f_ion=1
+ csnd_for_signalspeed=0.100472 eps_forcesoftening=0.14 mass=1.4144e-07 type=0 condition_number=1 Nngb=4.4676
+ NVT=0/0/0 0/0/0 0/0/0
+
+writing block 0 (Coordinates)...
+writing block 1 (Velocities)...
+writing block 2 (ParticleIDs)...
+writing block 3 (ParticleChildIDsNumber)...
+writing block 4 (ParticleIDGenerationNumber)...
+writing block 5 (Masses)...
+writing block 6 (InternalEnergy)...
+writing block 7 (Density)...
+writing block 10 (SmoothingLength)...
+done with snapshot.
+
+Setting next time for snapshot file to Time_next= 0.9999999999999999  (DumpFlag=1)
+
+Sync-Point 1, Time: 5.820766091e-09, Systemstep: 5.82077e-09
+Occupied timebins: non-cells     cells       dt                 cumulative A D    avg-time  cpu-frac
+    bin=49               0        6003     0.097656250000            70694   *        0.00      0.0%
+    bin=48               0       35853     0.048828125000            64691   *        0.00      0.0%
+    bin=47               0       18460     0.024414062500            28838   *        0.00      0.0%
+    bin=46               0        8880     0.012207031250            10378   *        0.00      0.0%
+    bin=45               0        1466     0.006103515625             1498   *        0.00      0.0%
+    bin=44               0          22     0.003051757812               32            0.00      0.0%
+ X  bin=25               0          10     0.000000005821               10 <          0.00      0.0%
+               ------------------------
+Total active:            0          10    Sum:         10
+
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+
+ I GOT UPDATED 1! 
+WARNING issued on task=14, function hydro_force_evaluate(), file hydro/hydro_core_meshless.h, line 66: PANIC! Face_Area_Norm=-nan Mij=1.4144e-07/1.4144e-07 wk_ij=0/0 Vij=3.14159e+20/0.000300094 dx/dy/dz=-nan/-nan/0 NVT=0/0/0 NVT_j=2.06601/-0.0300955/0 
+
+Riemann Solver Failed to Find Positive Pressure!: Pmax=9.43847e-07 PL/M/R=8.58043e-07/nan/-nan Mi/j=1.4144e-07/1.4144e-07 rhoL/R=0.000471319/4.50217e-28 vL=0/0/0 vR=0/0/0 n_unit=-nan/-nan/-nan 
+ENDRUN issued on task=14, function 'hydro_force_evaluate()', file 'hydro/hydro_core_meshless.h', line 268: error level 1234
+WARNING issued on task=5, function hydro_force_evaluate(), file hydro/hydro_core_meshless.h, line 66: PANIC! Face_Area_Norm=-nan Mij=1.4144e-07/1.4144e-07 wk_ij=0/0 Vij=3.14159e+20/0.000124864 dx/dy/dz=-nan/-nan/0 NVT=0/0/0 NVT_j=2.27446/0.371028/0 
+
+Riemann Solver Failed to Find Positive Pressure!: Pmax=3.67624e-06 PL/M/R=3.34204e-06/nan/-nan Mi/j=1.4144e-07/1.4144e-07 rhoL/R=0.00113275/4.50217e-28 vL=0/0/0 vR=0/0/0 n_unit=-nan/-nan/-nan 
+ENDRUN issued on task=5, function 'hydro_force_evaluate()', file 'hydro/hydro_core_meshless.h', line 268: error level 1234
+WARNING issued on task=66, function hydro_force_evaluate(), file hydro/hydro_core_meshless.h, line 66: PANIC! Face_Area_Norm=-nan Mij=1.4144e-07/1.4144e-07 wk_ij=0/0 Vij=3.14159e+20/4.00362e-05 dx/dy/dz=-nan/-nan/0 NVT=0/0/0 NVT_j=4.941/-1.49576/0 
+
+Riemann Solver Failed to Find Positive Pressure!: Pmax=1.35237e-05 PL/M/R=1.22943e-05/nan/-nan Mi/j=1.4144e-07/1.4144e-07 rhoL/R=0.0035328/4.50217e-28 vL=0/0/0 vR=0/0/0 n_unit=-nan/-nan/-nan 
+ENDRUN issued on task=66, function 'hydro_force_evaluate()', file 'hydro/hydro_core_meshless.h', line 268: error level 1234
+WARNING issued on task=75, function hydro_force_evaluate(), file hydro/hydro_core_meshless.h, line 66: PANIC! Face_Area_Norm=-nan Mij=1.4144e-07/1.4144e-07 wk_ij=0/0 Vij=3.14159e+20/0.000223762 dx/dy/dz=-nan/-nan/0 NVT=0/0/0 NVT_j=2.67939/-0.384475/0 
+
+Riemann Solver Failed to Find Positive Pressure!: Pmax=1.44546e-06 PL/M/R=1.31406e-06/nan/-nan Mi/j=1.4144e-07/1.4144e-07 rhoL/R=0.000632101/4.50217e-28 vL=0/0/0 vR=0/0/0 n_unit=-nan/-nan/-nan 
+ENDRUN issued on task=75, function 'hydro_force_evaluate()', file 'hydro/hydro_core_meshless.h', line 268: error level 1234

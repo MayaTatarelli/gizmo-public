@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH --account=def-evelee
+#SBATCH -J planetring 
+#SBATCH --time=12:00:00
+#SBATCH --nodes=2
+#SBATCH --ntasks=96
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=log-%j.out
+#SBATCH --mail-user=maya.tatarelli@mail.mcgill.ca
+#SBATCH --mail-type=ALL
+EXECUTABLE="/home/mtatar/projects/def-evelee/mtatar/gizmo-public/GIZMO"
+mpirun ${EXECUTABLE} keplerian.params 1>gizmo.out 2>gizmo.err

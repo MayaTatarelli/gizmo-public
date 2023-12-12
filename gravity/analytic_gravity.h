@@ -395,6 +395,13 @@ void GravAccel_KeplerianTestProblem_maya()
         double H_in = H_factor_in*0.05*pow(r_in_true,5./4.);
         double H_out = H_factor_out*0.05*pow(r_out_true,5./4.);
 
+        //For damping
+        double h = 0.05*pow(r, 5./4.); //need for damping at boundaries function
+        double Omega = pow(r, -3./2.);
+        double T0 = 0.0025;
+        double p = -1.0;
+
+        // Within the disk
         if((r > r_in)&(r < r_out))
         {
             P[i].GravAccel[0] = -(P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
@@ -402,11 +409,35 @@ void GravAccel_KeplerianTestProblem_maya()
             P[i].GravAccel[2] = 0;
         }
         // if((r>(r_in_true-H_in)) & (r<(r_in_true+H_in)))
+
+        // Extra pressure forcing term at inner boundary --removing for now when including damping
+        // Also add damping at inner boundary
         if(r<(r_in_true+H_in))
-        {
-            P[i].GravAccel[0] += (11./4.)*(0.05*0.05) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
-            P[i].GravAccel[1] += (11./4.)*(0.05*0.05) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
+        {   
+
+            double theta = atan2(P[i].Pos[1]-y00, P[i].Pos[0]-x00); //TODO: --NEED TO CHECK
+            double in_boundary_x = (r_in_true+H_in)*cos(theta) + x00; //TODO: --NEED TO CHECK
+            double in_boundary_y = (r_in_true+H_in)*sin(theta) + y00; //TODO: --NEED TO CHECK
+
+            double in = pow(Omega,2) * pow(r,2) + ((p-7/4)*T0/pow(r,0.5));
+            double vel_x_initial = - pow(in,0.5) * sin(theta);
+            double vel_y_initial = pow(in,0.5) * cos(theta);
+
+            double bracket_x = M_PI * abs(P[i].Pos[0] - in_boundary_x) / (2*h);
+            double TotalAccel_x = (vel_x_initial - P[i].Vel[0]) * Omega * pow(sin(bracket_x), 2);
+
+            double bracket_y = M_PI * abs(P[i].Pos[1] - in_boundary_y) / (2*h);
+            double TotalAccel_y = (vel_y_initial - P[i].Vel[1]) * Omega * pow(sin(bracket_y), 2);
+
+            //damping at boundary first
+            P[i].GravAccel[0] = TotalAccel_x - SphP[i].HydroAccel[0];
+            P[i].GravAccel[1] = TotalAccel_y - SphP[i].HydroAccel[1];
+            
+            //add extra pressure term
+            // P[i].GravAccel[0] += (11./4.)*(0.05*0.05) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
+            // P[i].GravAccel[1] += (11./4.)*(0.05*0.05) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
         }
+
         // if(r <= r_in)
         // {
         //     P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*pow(r/r_in,2) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
@@ -415,11 +446,18 @@ void GravAccel_KeplerianTestProblem_maya()
         //     P[i].GravAccel[1] += +(P[i].Pos[1]-y00)*(r_in-r)/r_in / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
         //     P[i].GravAccel[2] = 0;
         // }
+
+        // Extra pressure forcing term at outer boundary
+        // Also add damping at outer boundary
         if(r>(r_out_true-H_out))
         {
+            //damping at boundary first
+
+            //add pressure term
             P[i].GravAccel[0] -= (11./4.)*(0.05*0.05) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
             P[i].GravAccel[1] -= (11./4.)*(0.05*0.05) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
         }
+        // If particles go outside max radius
         if(r >= r_out)
         {
             //double check the division by 0.1 and where this comes from
@@ -427,8 +465,32 @@ void GravAccel_KeplerianTestProblem_maya()
             P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
             P[i].GravAccel[2] = 0;
         }
+/*  
+        //JUST FOR REFERENCE -- from dev-3d in shearing box
+        //Adding damping term for radial boundaries
+        double inner_boundary = 0.05*boxSize_X;
+        double outer_boundary = boxSize_X-inner_boundary;
+        printf("\n Inner Boundary = %g\n", inner_boundary);
+        printf("\n Outer Boundary = %g\n", outer_boundary);
+
+        if (P[i].Pos[0]<=inner_boundary || P[i].Pos[0]>=outer_boundary){
+        double bracket_term;
+            if (P[i].Pos[0]<=inner_boundary) {bracket_term = M_PI_2*abs(P[i].Pos[0] - inner_boundary);}
+            else {bracket_term = M_PI_2*abs(P[i].Pos[0] - outer_boundary);}
+
+            double vel_phi_initial = -(P[i].Pos[0]-boxHalf_X) * BOX_SHEARING_Q*BOX_SHEARING_OMEGA_BOX_CENTER;
+            if(P[i].Type==0){
+                vel_phi_initial -= All.Pressure_Gradient_Accel / (2. * BOX_SHEARING_OMEGA_BOX_CENTER);
+            }
+
+            P[i].GravAccel[0] = (0.-P[i].Vel[0])*pow(sin(bracket_term),2);
+            P[i].GravAccel[1] = (vel_phi_initial-P[i].Vel[1])*pow(sin(bracket_term),2);
+            P[i].GravAccel[2] = (0.-P[i].Vel[2])*pow(sin(bracket_term),2);
+        }
+        */
     }
 }
+
 
 /* static NFW potential (parameters set below) */
 void GravAccel_StaticNFW()

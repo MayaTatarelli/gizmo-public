@@ -392,7 +392,7 @@ void GravAccel_KeplerianTestProblem_maya()
         double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
         double H_factor_in = 4.0;
         double H_factor_out = 1.0;
-        double H_in = H_factor_in*0.05*pow(r_in_true,5./4.);
+        double H_in = H_factor_in*0.05*pow(r_in_true,5./4.); //0.227
         double H_out = H_factor_out*0.05*pow(r_out_true,5./4.);
 
         //For damping

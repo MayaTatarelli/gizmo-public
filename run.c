@@ -130,6 +130,50 @@ void run(void)
         }
 #endif
         
+        //Adding damping for inner boundary condition here so that it is after hydro density and forces are computed.
+        //Modify through GracAccel here (not in keplerian disk case in analytic_gravity.h file)
+        //MayaT -- Jan 30 2024
+        double x00=2.0, y00=2.0;
+        double r_in_true=0.2, r_out_true=2.00;
+        int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
+        {
+            double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
+            double H_factor_in = 4.0;
+            double H_factor_out = 1.0;
+            double H_in = H_factor_in*0.05*pow(r_in_true,5./4.); //0.227
+            double H_out = H_factor_out*0.05*pow(r_out_true,5./4.);
+
+            //For damping
+            double h = 0.05*pow(r, 5./4.); //need for damping at boundaries function
+            double Omega = pow(r, -3./2.);
+            double T0 = 0.0025;
+            double p = -1.0;
+
+            //Inner boundary
+            if(r<(r_in_true+H_in))
+            {   
+
+                double theta = atan2(P[i].Pos[1]-y00, P[i].Pos[0]-x00); //TODO: --NEED TO CHECK
+                double in_boundary_x = (r_in_true+H_in)*cos(theta) + x00; //TODO: --NEED TO CHECK
+                double in_boundary_y = (r_in_true+H_in)*sin(theta) + y00; //TODO: --NEED TO CHECK
+
+                double in = pow(Omega,2) * pow(r,2) + ((p-7/4)*T0/pow(r,0.5));
+                double vel_x_initial = - pow(in,0.5) * sin(theta);
+                double vel_y_initial = pow(in,0.5) * cos(theta);
+
+                double bracket_x = M_PI * abs(P[i].Pos[0] - in_boundary_x) / (2*h);
+                double TotalAccel_x = (vel_x_initial - P[i].Vel[0]) * Omega * pow(sin(bracket_x), 2);
+
+                double bracket_y = M_PI * abs(P[i].Pos[1] - in_boundary_y) / (2*h);
+                double TotalAccel_y = (vel_y_initial - P[i].Vel[1]) * Omega * pow(sin(bracket_y), 2);
+
+                //damping at boundary first
+                P[i].GravAccel[0] = TotalAccel_x - SphP[i].HydroAccel[0];
+                P[i].GravAccel[1] = TotalAccel_y - SphP[i].HydroAccel[1];
+                
+            }
+        }
+
         do_second_halfstep_kick();	/* this does the half-step kick at the end of the timestep */
 
         calculate_non_standard_physics();	/* source terms are here treated in a strang-split fashion */

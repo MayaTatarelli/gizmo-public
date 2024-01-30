@@ -395,12 +395,6 @@ void GravAccel_KeplerianTestProblem_maya()
         double H_in = H_factor_in*0.05*pow(r_in_true,5./4.); //0.227
         double H_out = H_factor_out*0.05*pow(r_out_true,5./4.);
 
-        //For damping
-        double h = 0.05*pow(r, 5./4.); //need for damping at boundaries function
-        double Omega = pow(r, -3./2.);
-        double T0 = 0.0025;
-        double p = -1.0;
-
         // Within the disk
         if((r > r_in)&(r < r_out))
         {
@@ -413,26 +407,7 @@ void GravAccel_KeplerianTestProblem_maya()
         // Extra pressure forcing term at inner boundary --removing for now when including damping
         // Also add damping at inner boundary
         if(r<(r_in_true+H_in))
-        {   
-
-            double theta = atan2(P[i].Pos[1]-y00, P[i].Pos[0]-x00); //TODO: --NEED TO CHECK
-            double in_boundary_x = (r_in_true+H_in)*cos(theta) + x00; //TODO: --NEED TO CHECK
-            double in_boundary_y = (r_in_true+H_in)*sin(theta) + y00; //TODO: --NEED TO CHECK
-
-            double in = pow(Omega,2) * pow(r,2) + ((p-7/4)*T0/pow(r,0.5));
-            double vel_x_initial = - pow(in,0.5) * sin(theta);
-            double vel_y_initial = pow(in,0.5) * cos(theta);
-
-            double bracket_x = M_PI * abs(P[i].Pos[0] - in_boundary_x) / (2*h);
-            double TotalAccel_x = (vel_x_initial - P[i].Vel[0]) * Omega * pow(sin(bracket_x), 2);
-
-            double bracket_y = M_PI * abs(P[i].Pos[1] - in_boundary_y) / (2*h);
-            double TotalAccel_y = (vel_y_initial - P[i].Vel[1]) * Omega * pow(sin(bracket_y), 2);
-
-            //damping at boundary first
-            P[i].GravAccel[0] = TotalAccel_x - SphP[i].HydroAccel[0];
-            P[i].GravAccel[1] = TotalAccel_y - SphP[i].HydroAccel[1];
-            
+        {
             //add extra pressure term
             // P[i].GravAccel[0] += (11./4.)*(0.05*0.05) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
             // P[i].GravAccel[1] += (11./4.)*(0.05*0.05) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);

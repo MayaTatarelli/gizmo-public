@@ -385,14 +385,14 @@ void GravAccel_KeplerianTestProblem()
 void GravAccel_KeplerianTestProblem_maya()
 {
     double x00=2.0, y00=2.0; /* 2D center of orbit: the is hard-coded for the relevant test problem */
-    double r_in=0.18, r_out=2.05, r_in_true=0.2, r_out_true=2.00;
+    double r_in=0.08, r_out=2.05, r_in_true=0.1, r_out_true=2.00;
     printf("\n I GOT UPDATED 1! \n");
     int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
     {
         double r = pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),0.5);
         double H_factor_in = 4.0;
         double H_factor_out = 1.0;
-        double H_in = H_factor_in*0.05*pow(r_in_true,5./4.);
+        double H_in = 0.127; //H_factor_in*0.05*pow(r_in_true,5./4.);
         double H_out = H_factor_out*0.05*pow(r_out_true,5./4.);
 
         if((r > r_in)&(r < r_out))

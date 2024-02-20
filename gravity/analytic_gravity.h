@@ -401,6 +401,14 @@ void GravAccel_KeplerianTestProblem_maya()
             P[i].GravAccel[1] = -(P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
             P[i].GravAccel[2] = 0;
         }
+
+        //Inner inflow
+        if(r < r_in)
+        {
+            //Set particle mass to 0 to delete particle (inner bndry inflow)
+            P[i].Mass = 0;
+        }
+
         // if((r>(r_in_true-H_in)) & (r<(r_in_true+H_in)))
         // if(r<(r_in_true+H_in))
         // {

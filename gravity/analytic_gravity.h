@@ -424,17 +424,18 @@ void GravAccel_KeplerianTestProblem_maya()
         //     P[i].GravAccel[2] = 0;
         // }
         if(r>(r_out_true-H_out))
-        {
-            P[i].GravAccel[0] -= (11./4.)*(0.05*0.05) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
-            P[i].GravAccel[1] -= (11./4.)*(0.05*0.05) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
+        {   
+            double reduce_factor = 0.5;
+            P[i].GravAccel[0] -= reduce_factor * (11./4.)*(0.05*0.05) * (P[i].Pos[0]-x00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
+            P[i].GravAccel[1] -= reduce_factor * (11./4.)*(0.05*0.05) * (P[i].Pos[1]-y00) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.), 5./4.);
         }
-        // if(r >= r_out)
-        // {
-        //     //double check the division by 0.1 and where this comes from
-        //     P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-        //     P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-        //     P[i].GravAccel[2] = 0;
-        // }
+        if(r >= r_out)
+        {
+            //double check the division by 0.1 and where this comes from
+            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[2] = 0;
+        }
     }
 }
 

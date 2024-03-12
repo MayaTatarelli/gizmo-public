@@ -432,12 +432,12 @@ void GravAccel_KeplerianTestProblem_maya()
         if(r >= r_out)
         {
             //Set particle mass to 0 to delete particle (inner bndry inflow)
-            // P[i].Mass = 0;
+            P[i].Mass = 0;
 
             //double check the division by 0.1 and where this comes from
-            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-            P[i].GravAccel[2] = 0;
+            // P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            // P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            // P[i].GravAccel[2] = 0;
         }
     }
 }

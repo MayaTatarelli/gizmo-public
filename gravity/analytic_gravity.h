@@ -384,8 +384,8 @@ void GravAccel_KeplerianTestProblem()
 //Maya's version of the keplerian test problem -- MayaT
 void GravAccel_KeplerianTestProblem_maya()
 {
-    double x00=2.0, y00=2.0; /* 2D center of orbit: the is hard-coded for the relevant test problem */
-    double r_in=0.18, r_out=2.05, r_in_true=0.2, r_out_true=2.00;
+    double r_in=0.18, r_out=4.05, r_in_true=0.2, r_out_true=4.00;
+    double x00=r_out_true, y00=r_out_true; /* 2D center of orbit: no longer hard-coded for the relevant test problem (based on outer radius) */
     printf("\n I GOT UPDATED 1! \n");
     int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
     {
@@ -435,8 +435,8 @@ void GravAccel_KeplerianTestProblem_maya()
             // P[i].Mass = 0;
 
             //double check the division by 0.1 and where this comes from
-            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
-            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-r_out)/(r_out-2.0)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[0] = -(P[i].Pos[0]-x00)*(1+(r-r_out)/(r_out-r_out_true)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
+            P[i].GravAccel[1] = -(P[i].Pos[1]-y00)*(1+(r-r_out)/(r_out-r_out_true)) / pow(pow(P[i].Pos[1]-y00,2.)+pow(P[i].Pos[0]-x00,2.),1.5) ;
             P[i].GravAccel[2] = 0;
         }
     }

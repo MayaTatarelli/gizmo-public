@@ -384,7 +384,7 @@ void GravAccel_KeplerianTestProblem()
 //Maya's version of the keplerian test problem -- MayaT
 void GravAccel_KeplerianTestProblem_maya()
 {
-    double r_in=0.18, r_out=2.05, r_in_true=0.2, r_out_true=2.00;
+    double r_in=0.18, r_out=4.05, r_in_true=0.2, r_out_true=4.00;
     double x00=r_out_true, y00=r_out_true; /* 2D center of orbit: no longer hard-coded for the relevant test problem (based on outer radius) */
     printf("\n I GOT UPDATED 1! \n");
     int i; for(i = FirstActiveParticle; i >= 0; i = NextActiveParticle[i])
